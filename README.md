@@ -2,13 +2,13 @@
 
 **Render any text as photorealistic, procedural satin-stitch embroidery — in real time, in the browser, from the font's actual glyph geometry.**
 
-[![npm](https://img.shields.io/npm/v/@liiift-studio/threadtext.svg)](https://www.npmjs.com/package/@liiift-studio/threadtext)
-[![license](https://img.shields.io/npm/l/@liiift-studio/threadtext.svg)](./LICENSE)
+[![npm](https://img.shields.io/npm/v/@overpunch/threadtext.svg)](https://www.npmjs.com/package/@overpunch/threadtext)
+[![license](https://img.shields.io/npm/l/@overpunch/threadtext.svg)](./LICENSE)
 ![types](https://img.shields.io/badge/types-included-blue.svg)
 ![dependencies](https://img.shields.io/badge/dependencies-0-brightgreen.svg)
 ![gzip](https://img.shields.io/badge/gzip-~10%20kB-brightgreen.svg)
 
-Homepage: **[threadtext.com](https://threadtext.com)** (live, interactive demo) · npm: [`@liiift-studio/threadtext`](https://www.npmjs.com/package/@liiift-studio/threadtext)
+Homepage: **[threadtext.com](https://threadtext.com)** (live, interactive demo) · npm: [`@overpunch/threadtext`](https://www.npmjs.com/package/@overpunch/threadtext)
 
 Framework-agnostic core (`createThreadText`), a React hook + component (`useThreadText` / `<ThreadText>`), and Framer / Webflow ports. Zero required dependencies; `react`/`react-dom` are optional peers.
 
@@ -48,7 +48,7 @@ The heavy geometry pass (steps 2–5) runs in a **Web Worker** so typing and liv
 ## Use it
 
 ```ts
-import { createThreadText } from '@liiift-studio/threadtext'
+import { createThreadText } from '@overpunch/threadtext'
 
 // Declare the face (any @font-face / next/font / CSS Font Loading API) — the core
 // waits for it to load before drawing, so you don't have to await it yourself.
@@ -73,7 +73,7 @@ The host element needs a resolved width — the word is fitted to `host.getBound
 ### React
 
 ```tsx
-import { ThreadText } from '@liiift-studio/threadtext'
+import { ThreadText } from '@overpunch/threadtext'
 
 <ThreadText text="Thread" font='"Your Font", serif' weight={680} />
 ```
@@ -83,7 +83,7 @@ import { ThreadText } from '@liiift-studio/threadtext'
 For a custom container or your own imperative control, use the hook — it creates the instance, applies option changes live, and tears everything down (ResizeObserver + `destroy()`) on unmount:
 
 ```tsx
-import { useThreadText } from '@liiift-studio/threadtext'
+import { useThreadText } from '@overpunch/threadtext'
 
 function Stitched() {
   const ref = useThreadText<HTMLDivElement>({ text: 'Thread', weight: 680, threadColor: '#e6c200' })
@@ -98,7 +98,7 @@ function Stitched() {
 **Webflow** — drop the self-contained embed bundle (no React, no module loader) into an Embed element and mark any element with `data-threadtext`:
 
 ```html
-<script src="https://unpkg.com/@liiift-studio/threadtext/dist/threadtext.webflow.min.js"></script>
+<script src="https://unpkg.com/@overpunch/threadtext/dist/threadtext.webflow.min.js"></script>
 
 <div data-threadtext
      data-tt-text="Thread"

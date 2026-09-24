@@ -4,7 +4,7 @@ Last updated: 2026-07-11
 
 ## Name
 Tool is now **threadText** (was the placeholder "stitchType"). npm
-`@liiift-studio/threadtext`, domain **threadtext.com** (owned, on Vercel), GitHub repo
+`@overpunch/threadtext`, domain **threadtext.com** (owned, on Vercel), GitHub repo
 `Liiift-Studio/ThreadText`. The monorepo **folder is still `stitchType/`** until the
 submodule path is renamed (fiddly parent rewiring — pending).
 
@@ -14,7 +14,7 @@ package (`src/`) with React bindings and tests. Build + typecheck + tests all gr
 `demo/index.html` remains the visual oracle.
 
 ## Done in this slice
-- Bootstrap: `package.json` (`@liiift-studio/threadtext` 0.0.1), `vite.config.ts`,
+- Bootstrap: `package.json` (`@overpunch/threadtext` 0.0.1), `vite.config.ts`,
   `vitest.config.ts`, `tsconfig.json` — matched against `../floodText`.
 - Core: `src/core/types.ts` (`ThreadTextOptions`, `ThreadTextInstance`,
   `THREAD_TEXT_CLASSES` → `tt-bg`/`tt-fx`) and `src/core/threadText.ts` — the demo's
@@ -42,7 +42,7 @@ package (`src/`) with React bindings and tests. Build + typecheck + tests all gr
 1. Landing site under `site/` (Next.js) with a **free-licensed** VF (demo font is
    Darden-proprietary — HANDOFF §7). Then add `threadText` to `scripts/sync-sites.mjs`
    SUBMODULES + parent `.gitmodules`-driven sync, and point threadtext.com (Vercel) at it.
-2. npm publish `@liiift-studio/threadtext@0.0.1` (unblocks the Framer esm.sh pin).
+2. npm publish `@overpunch/threadtext@0.0.1` (unblocks the Framer esm.sh pin).
 3. Perf: region-limit or Worker/WASM the per-keystroke geometry rebuild (HANDOFF §4.1).
 
 ## Decisions on record

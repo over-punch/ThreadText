@@ -25,7 +25,7 @@
 - [x] Tests: `src/__tests__/webflow.test.ts` (4). Total 14 passing. lint clean, both builds green.
 
 ## Landing site + ship (2026-07-11)
-- [x] Published `@liiift-studio/threadtext@0.0.1` to npm (unblocks the Framer esm.sh pin).
+- [x] Published `@overpunch/threadtext@0.0.1` to npm (unblocks the Framer esm.sh pin).
 - [x] Landing site under `site/` (cloned from floodText/site): hero, live embroidery Demo
   (imperative `createThreadText` + controls), how-it-works, usage, options table, PortsSection,
   footer. Theme = threadText indigo (hue 268). Demo font = **Fraunces** (OFL variable,

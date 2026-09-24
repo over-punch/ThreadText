@@ -31,7 +31,7 @@ export default function Home() {
 				eyebrow="embroidered text rendering"
 				title={[{ text: "Text," }, { text: "embroidered.", italic: true, subtle: true }]}
 				titleWeight={360}
-				install="@liiift-studio/threadtext"
+				install="@overpunch/threadtext"
 				github="https://github.com/Liiift-Studio/ThreadText"
 				tech={["TypeScript", "Zero dependencies", "React + Vanilla JS"]}
 			>
@@ -79,20 +79,20 @@ export default function Home() {
 				<div className="flex flex-col gap-8 text-sm">
 					<div className="flex flex-col gap-3">
 						<p className="text-muted">Drop-in component</p>
-						<CodeBlock code={`import { ThreadText } from '@liiift-studio/threadtext'
+						<CodeBlock code={`import { ThreadText } from '@overpunch/threadtext'
 
 <ThreadText text="Thread" font='"Your Font", serif' weight={680} />`} />
 					</div>
 					<div className="flex flex-col gap-3">
 						<p className="text-muted">Hook</p>
-						<CodeBlock code={`import { useThreadText } from '@liiift-studio/threadtext'
+						<CodeBlock code={`import { useThreadText } from '@overpunch/threadtext'
 
 const ref = useThreadText({ text: 'Thread', font: '"Your Font", serif', weight: 680 })
 <div ref={ref} />`} />
 					</div>
 					<div className="flex flex-col gap-3">
 						<p className="text-muted">Vanilla JS</p>
-						<CodeBlock code={`import { createThreadText } from '@liiift-studio/threadtext'
+						<CodeBlock code={`import { createThreadText } from '@overpunch/threadtext'
 
 // Load the face first (any @font-face / next/font / CSS Font Loading API), then:
 const thread = createThreadText(document.getElementById('host'), {
@@ -137,7 +137,7 @@ thread.destroy()          // cancel rAF, remove listeners, free canvases`} />
 			</section>
 
 			<PortsSection
-				npm="@liiift-studio/threadtext"
+				npm="@overpunch/threadtext"
 				bundle="threadtext"
 				attr="data-threadtext"
 				framerComponent="ThreadText"
