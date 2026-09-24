@@ -4,8 +4,8 @@
 // watch it embroider itself. Font, size, weight, sew-rate, sheen, and thread colour are all
 // live: they redraw instantly via update() without re-running the sew-in animation.
 import { useEffect, useRef, useState, useCallback, useDeferredValue } from "react"
-import { createThreadText } from "@liiift-studio/threadtext"
-import type { ThreadTextInstance } from "@liiift-studio/threadtext"
+import { createThreadText } from "@overpunch/threadtext"
+import type { ThreadTextInstance } from "@overpunch/threadtext"
 
 /** A spread of type styles (labelled by category, not by name) — each embroiders differently.
  *  `opsz: true` marks the faces that ship an optical-size axis, so the Optical control is only

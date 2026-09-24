@@ -1,5 +1,5 @@
 {
-	"name": "@liiift-studio/threadtext",
+	"name": "@overpunch/threadtext",
 	"version": "0.4.6",
 	"description": "Render any text as photorealistic procedural satin-stitch embroidery, in real time in the browser, from the font's glyph geometry",
 	"type": "module",
