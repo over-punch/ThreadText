@@ -5,7 +5,7 @@ Last updated: 2026-07-11
 ## Name
 Tool is now **threadText** (was the placeholder "stitchType"). npm
 `@overpunch/threadtext`, domain **threadtext.com** (owned, on Vercel), GitHub repo
-`Liiift-Studio/ThreadText`. The monorepo **folder is still `stitchType/`** until the
+`over-punch/ThreadText`. The monorepo **folder is still `stitchType/`** until the
 submodule path is renamed (fiddly parent rewiring — pending).
 
 ## Current focus
@@ -29,7 +29,7 @@ package (`src/`) with React bindings and tests. Build + typecheck + tests all gr
 - Tests: `src/__tests__/threadText.test.ts` — 10 passing (pure math + lifecycle with a
   canvas-2D stub; happy-dom has no canvas backend).
 - Verified: `npm run lint` clean, `npm run test:run` 10/10, `npm run build` → ESM+CJS+dts.
-- Registered as a type-tools submodule; pushed to `Liiift-Studio/ThreadText`.
+- Registered as a type-tools submodule; pushed to `over-punch/ThreadText`.
 
 ## Done since
 - Folder renamed `stitchType/` → `threadText/` (submodule rewired; internal .gitmodules

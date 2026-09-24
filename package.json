@@ -76,10 +76,10 @@
 	"homepage": "https://threadtext.com",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Liiift-Studio/ThreadText.git"
+		"url": "git+https://github.com/over-punch/ThreadText.git"
 	},
 	"bugs": {
-		"url": "https://github.com/Liiift-Studio/ThreadText/issues"
+		"url": "https://github.com/over-punch/ThreadText/issues"
 	},
 	"sideEffects": false,
 	"publishConfig": {

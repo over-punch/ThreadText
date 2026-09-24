@@ -32,7 +32,7 @@ export default function Home() {
 				title={[{ text: "Text," }, { text: "embroidered.", italic: true, subtle: true }]}
 				titleWeight={360}
 				install="@overpunch/threadtext"
-				github="https://github.com/Liiift-Studio/ThreadText"
+				github="https://github.com/over-punch/ThreadText"
 				tech={["TypeScript", "Zero dependencies", "React + Vanilla JS"]}
 			>
 				<p className="text-base leading-relaxed max-w-lg">
@@ -141,7 +141,7 @@ thread.destroy()          // cancel rAF, remove listeners, free canvases`} />
 				bundle="threadtext"
 				attr="data-threadtext"
 				framerComponent="ThreadText"
-				repo="Liiift-Studio/ThreadText"
+				repo="over-punch/ThreadText"
 			/>
 
 			<SiteFooter current="threadText" npmVersion={version} siteVersion={siteVersion} />

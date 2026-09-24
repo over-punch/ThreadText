@@ -13,7 +13,7 @@ Homepage: **[threadtext.com](https://threadtext.com)** (live, interactive demo) 
 Framework-agnostic core (`createThreadText`), a React hook + component (`useThreadText` / `<ThreadText>`), and Framer / Webflow ports. Zero required dependencies; `react`/`react-dom` are optional peers.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Liiift-Studio/ThreadText/main/assets/hero.png?v=1" alt="The word &ldquo;Thread&rdquo; rendered as raised gold satin-stitch embroidery, the floss running across each stroke" width="820" />
+  <img src="https://raw.githubusercontent.com/over-punch/ThreadText/main/assets/hero.png?v=1" alt="The word &ldquo;Thread&rdquo; rendered as raised gold satin-stitch embroidery, the floss running across each stroke" width="820" />
 </p>
 
 > **See it move.** It sews itself in stitch-by-stitch and reacts to the cursor, so a still can't fully show it — the [**live demo at threadtext.com**](https://threadtext.com) is the fastest way to judge it.
@@ -40,7 +40,7 @@ Each step below is what actually produces the thread look — the plain-language
 The heavy geometry pass (steps 2–5) runs in a **Web Worker** so typing and live edits stay smooth; where a Worker isn't available it falls back to running synchronously on the main thread (see [Requirements](#requirements--browser-support)).
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Liiift-Studio/ThreadText/main/assets/sew-in.gif?v=1" alt="Animation of the word &ldquo;Sew&rdquo; being stitched in one satin row at a time" width="480" />
+  <img src="https://raw.githubusercontent.com/over-punch/ThreadText/main/assets/sew-in.gif?v=1" alt="Animation of the word &ldquo;Sew&rdquo; being stitched in one satin row at a time" width="480" />
   <br />
   <em>The sew-in animation (satin, machine style).</em>
 </p>
@@ -135,13 +135,13 @@ All fields on `ThreadTextOptions`. Most can be changed live with `instance.updat
 - **`editable`** + **`onTextChange`** — make the surface typeable (backed by a real `<input>`, so touch keyboards and IME work). Call `instance.focus()` to focus it programmatically.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Liiift-Studio/ThreadText/main/assets/stitch-modes.png?v=1" alt="The word &ldquo;Sew&rdquo; in the four stitch modes: satin, cross, chain, and running" width="820" />
+  <img src="https://raw.githubusercontent.com/over-punch/ThreadText/main/assets/stitch-modes.png?v=1" alt="The word &ldquo;Sew&rdquo; in the four stitch modes: satin, cross, chain, and running" width="820" />
   <br />
   <em>The four <code>stitchMode</code> textures.</em>
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Liiift-Studio/ThreadText/main/assets/thread-styles.png?v=1" alt="The word &ldquo;Sew&rdquo; in four floss styles: solid, two-tone, gradient, and with a backstitch outline" width="820" />
+  <img src="https://raw.githubusercontent.com/over-punch/ThreadText/main/assets/thread-styles.png?v=1" alt="The word &ldquo;Sew&rdquo; in four floss styles: solid, two-tone, gradient, and with a backstitch outline" width="820" />
   <br />
   <em>Floss styles: <code>colorMode</code> (solid / two-tone / gradient) and the <code>backstitch</code> outline.</em>
 </p>
@@ -161,10 +161,10 @@ All fields on `ThreadTextOptions`. Most can be changed live with `instance.updat
 
 ## Development
 
-This repo is a git submodule of the [type-tools](https://github.com/Liiift-Studio/type-tools) monorepo. To work on the package itself:
+This repo is a git submodule of the [type-tools](https://github.com/over-punch/type-tools) monorepo. To work on the package itself:
 
 ```bash
-git clone https://github.com/Liiift-Studio/ThreadText.git
+git clone https://github.com/over-punch/ThreadText.git
 cd ThreadText
 npm install
 npm test            # vitest (happy-dom)
@@ -185,15 +185,15 @@ Source layout:
 | `src/webflow/embed.ts` | Webflow auto-init embed → `dist/threadtext.webflow.min.js` |
 | `src/__tests__/` | vitest suites (core, worker assembly, webflow embed) |
 
-The landing site + interactive demo live in `site/` (Next.js). Issues and PRs: [github.com/Liiift-Studio/ThreadText/issues](https://github.com/Liiift-Studio/ThreadText/issues).
+The landing site + interactive demo live in `site/` (Next.js). Issues and PRs: [github.com/over-punch/ThreadText/issues](https://github.com/over-punch/ThreadText/issues).
 
-> **Contributing note:** this repo is a submodule of the [type-tools](https://github.com/Liiift-Studio/type-tools) monorepo, and the files under `site/` config, `vercel.json`, and `.gitignore` are **auto-synced from the parent** (`type-tools/shared/`) — edits to those here are overwritten on the next sync. The package source (`src/`) and the per-tool site files (`site/src/app/page.tsx`, `Demo.tsx`, `layout.tsx`, `globals.css`) are safe to edit directly.
+> **Contributing note:** this repo is a submodule of the [type-tools](https://github.com/over-punch/type-tools) monorepo, and the files under `site/` config, `vercel.json`, and `.gitignore` are **auto-synced from the parent** (`type-tools/shared/`) — edits to those here are overwritten on the next sync. The package source (`src/`) and the per-tool site files (`site/src/app/page.tsx`, `Demo.tsx`, `layout.tsx`, `globals.css`) are safe to edit directly.
 
 ---
 
 ## The type-tools family
 
-threadText is one of [**type-tools**](https://github.com/Liiift-Studio/type-tools) — a suite of small, focused typographic libraries by Liiift Studio, each doing one thing that's hard or impossible in CSS alone. A few siblings:
+threadText is one of [**type-tools**](https://github.com/over-punch/type-tools) — a suite of small, focused typographic libraries by Liiift Studio, each doing one thing that's hard or impossible in CSS alone. A few siblings:
 
 - [**ragtooth**](https://ragtooth.com) — deliberate sawtooth ragged-edge line breaking.
 - [**floodText**](https://floodtext.com) — per-character variable-font wave animation.
@@ -201,8 +201,8 @@ threadText is one of [**type-tools**](https://github.com/Liiift-Studio/type-tool
 - [**opszStepper**](https://opszstepper.com) — optical-size font hot-swap by font-size.
 - [**hoverBoldly**](https://hoverboldly.com) — bold-on-hover with no layout shift.
 
-See the [full family](https://github.com/Liiift-Studio/type-tools) for all of them.
+See the [full family](https://github.com/over-punch/type-tools) for all of them.
 
 ---
 
-Part of [type-tools](https://github.com/Liiift-Studio/type-tools) by [Liiift Studio](https://liiift.studio). MIT.
+Part of [type-tools](https://github.com/over-punch/type-tools) by [Liiift Studio](https://liiift.studio). MIT.
