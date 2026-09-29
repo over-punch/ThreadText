@@ -205,4 +205,4 @@ See the [full family](https://github.com/over-punch/type-tools) for all of them.
 
 ---
 
-Part of [type-tools](https://github.com/over-punch/type-tools) by [Liiift Studio](https://liiift.studio). MIT.
+Part of [type-tools](https://github.com/over-punch/type-tools) by [Liiift Studio](https://overpunch.ca). MIT.
