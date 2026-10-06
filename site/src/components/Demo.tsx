@@ -124,7 +124,7 @@ export default function Demo() {
 	return (
 		<div className="w-full flex flex-col gap-6">
 			{/* Embroidery surface — click and type directly, or use the input below */}
-			<div ref={hostRef} style={{ width: '100%', cursor: 'text' }} aria-label={`The word "${text}" as satin-stitch embroidery — click and type to change it`} />
+			<div ref={hostRef} style={{ width: '100%', cursor: 'text' }} />
 
 			{/* Word input + replay */}
 			<div className="flex flex-wrap items-end gap-4">

@@ -68,7 +68,15 @@ if (host) {
 }
 ```
 
-The host element needs a resolved width — the word is fitted to `host.getBoundingClientRect().width`. `createThreadText` is **SSR-safe**: called without a DOM it returns an inert no-op handle, so it won't crash a server render.
+The host element needs a resolved width — the word is fitted to `host.getBoundingClientRect().width`, and re-fitted whenever that width changes (window resize or the container alone). A font that finishes loading late is picked up and redrawn. `createThreadText` is **SSR-safe**: called without a DOM it returns an inert no-op handle, so it won't crash a server render.
+
+**Without React:** import from `@overpunch/threadtext/core` — the same renderer with no React import at all.
+
+### Accessibility
+
+The embroidery is drawn on canvases, which are marked `aria-hidden`. The text itself stays in the element, visually hidden, so screen readers read it, find-in-page finds it and translation tools translate it — and the element keeps its own role, so `<h1>` stays a heading and links inside it stay links (and work). If the element was empty, threadText adds a visually hidden copy of `text`. `destroy()` puts the element's own content back (the same nodes, listeners and all) and removes the inline styles it set. In `editable` mode a real text input carries the value instead.
+
+Invalid numbers (`NaN`, `Infinity`, negative pitch or rate) fall back to the defaults, an unusable `font` falls back to `Georgia, serif` with a console warning, and empty text reserves no space.
 
 ### React
 
@@ -80,7 +88,9 @@ import { ThreadText } from '@overpunch/threadtext'
 
 **Next.js / App Router:** the React entry uses `useRef`/`useLayoutEffect`, so it's a Client Component — put `'use client'` at the top of the file that imports `<ThreadText>` (or your own wrapper). The framework-agnostic core is SSR-safe on its own; only the React bindings need the client boundary.
 
-For a custom container or your own imperative control, use the hook — it creates the instance, applies option changes live, and tears everything down (ResizeObserver + `destroy()`) on unmount:
+Use `as` for the element type (`<ThreadText as="h1" text="Thread" />` stays a heading). HTML attributes and handlers (`id`, `aria-*`, `data-*`, `lang`, `onClick`…) are passed through to the element.
+
+For a custom container or your own imperative control, use the hook — it creates the instance, applies every option change live, and calls `destroy()` on unmount:
 
 ```tsx
 import { useThreadText } from '@overpunch/threadtext'
@@ -109,7 +119,7 @@ function Stitched() {
      data-tt-sew-style="machine"></div>
 ```
 
-The bundle auto-initialises every `[data-threadtext]` element and exposes a small `window.ThreadText` API for manual control. Supported attributes: `data-tt-text`, `data-tt-font`, `data-tt-weight`, `data-tt-thread-color`, `data-tt-thread-color2`, `data-tt-color-mode`, `data-tt-backstitch`, `data-tt-outline-color`, `data-tt-fill`, `data-tt-align`, `data-tt-pitch`, `data-tt-stitch-mode`, `data-tt-sew-style`, `data-tt-sew-rate`, `data-tt-sheen`, `data-tt-animate`, `data-tt-editable`, `data-tt-axes` (JSON).
+The bundle auto-initialises every `[data-threadtext]` element — including ones added to the page later (CMS lists, tabs) — and frees the renderer of any that are removed. It exposes `window.ThreadText`: `init(root?)` sets up new elements under (and including) `root`, leaving running ones alone; `restart(el)` rebuilds one after you change its attributes; `destroy(el)` restores it. Supported attributes: `data-tt-text`, `data-tt-font`, `data-tt-weight`, `data-tt-thread-color`, `data-tt-thread-color2`, `data-tt-color-mode`, `data-tt-backstitch`, `data-tt-outline-color`, `data-tt-fill`, `data-tt-align`, `data-tt-pitch`, `data-tt-stitch-mode`, `data-tt-sew-style`, `data-tt-sew-rate`, `data-tt-sheen`, `data-tt-animate`, `data-tt-editable`, `data-tt-axes` (JSON).
 
 ---
 
@@ -153,7 +163,7 @@ All fields on `ThreadTextOptions`. Most can be changed live with `instance.updat
 - **Canvas 2D** — required. The whole render is drawn to stacked `<canvas>` elements.
 - **Web Worker + `Blob` + `URL.createObjectURL`** — used to run the geometry pass off the main thread. **Under a strict Content-Security-Policy the Worker is built from a `blob:` URL**, so you need `worker-src blob:` (or `script-src blob:`). If Worker creation is blocked or unavailable, threadText **degrades gracefully** and runs the same pass synchronously on the main thread — correct output, but heavy edits can jank on very large words.
 - **`fontVariationSettings` on canvas** (Chrome/Edge/Safari) — needed only for the `axes` option; feature-detected and skipped where unsupported.
-- **`prefers-reduced-motion`** — honoured automatically (skips the sew-in animation).
+- **`prefers-reduced-motion`** — honoured automatically and live: no sew-in, no moving sheen, a steady caret. Turning it on mid-sew finishes the word at once. The `reducedMotion` option overrides it.
 - **Size** — ~10 kB gzipped (ESM), ~9 kB for the standalone Webflow bundle. **Zero runtime dependencies** (`react`/`react-dom` are optional peers), tree-shakeable (`sideEffects: false`).
 - **Stability** — pre-1.0 (`0.x`); the option and instance API above is what's shipped, but pin the version if you depend on exact visual output.
 
