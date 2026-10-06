@@ -126,6 +126,8 @@ export const THREAD_TEXT_CLASSES = {
 	bg: 'tt-bg',
 	/** Overlay canvas: cursor sheen (`mix-blend-mode: screen`). */
 	fx: 'tt-fx',
+	/** The visually hidden real text (the element's own content, or a copy of `text`) for assistive tech. */
+	text: 'tt-text',
 	/** Blinking text caret shown in editable mode. */
 	caret: 'tt-caret',
 } as const
