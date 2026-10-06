@@ -93,7 +93,8 @@ export default function ThreadText(props: Partial<ThreadTextFramerProps>) {
 	useEffect(() => { instRef.current?.update({ font: fontFamily, weight, threadColor, threadColor2, colorMode, backstitch, outlineColor, fill, align, sewStyle, stitchMode, axes: { opsz }, sewRate, sheen: live ? sheen : false, animate: live ? animate : false }) }, [fontFamily, weight, threadColor, threadColor2, colorMode, backstitch, outlineColor, fill, align, sewStyle, stitchMode, opsz, sewRate, sheen, animate, live])
 	useEffect(() => { instRef.current?.setText(text) }, [text])
 
-	return <div ref={ref} style={{ width: "100%" }} role="img" aria-label={text} />
+	// The renderer keeps the text in the element (visually hidden) for screen readers; the canvases are aria-hidden.
+	return <div ref={ref} style={{ width: "100%" }} />
 }
 
 // Map every meaningful ThreadTextOptions field to a Framer control.
